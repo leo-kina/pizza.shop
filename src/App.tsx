@@ -10,7 +10,7 @@ export function App() {
     <>
 
 <RouterProvider router={router}/>
-    <Toaster/>
+    <Toaster richColors/>
 </>
   )
 }
