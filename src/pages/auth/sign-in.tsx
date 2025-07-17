@@ -3,8 +3,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@radix-ui/react-label'
 import {useForm} from 'react-hook-form'
 import {z} from 'zod'
-import { signInForm } from '@/schemas/loginSchema'
-
+import { signInForm } from '@/schemas/signSchema'
+import { toast } from 'sonner'
 export const Signin = () => {
   type SignFormDate = z.infer<typeof signInForm>
   const {
@@ -17,6 +17,8 @@ export const Signin = () => {
  async function handleSignin (data:SignFormDate){
 
   await new Promise(resolve => setTimeout(resolve,2000))
+    toast.success("Enviamos um link de autentificacao para seu e-mail.")
+
     console.log(data)
   }
   return (
