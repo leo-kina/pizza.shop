@@ -1,9 +1,24 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@radix-ui/react-label'
-import React from 'react'
+import {useForm} from 'react-hook-form'
+import {z} from 'zod'
+import { signInForm } from '@/schemas/loginSchema'
 
 export const Signin = () => {
+  type SignFormDate = z.infer<typeof signInForm>
+  const {
+    register,
+    handleSubmit,
+    formState: {isSubmitting}
+  } 
+  = useForm<SignFormDate>()
+
+ async function handleSignin (data:SignFormDate){
+
+  await new Promise(resolve => setTimeout(resolve,2000))
+    console.log(data)
+  }
   return (
     <div>
       <div className='p-8'>
@@ -12,12 +27,12 @@ export const Signin = () => {
       <h1 className='text-2xl font-semibold tracking-tight'>Acessar painel</h1>
       <p className='text-sm text-muted-foreground'>Acompanhe suas vendas pelo painel do parceiro!</p>
     </div>
-    <form className='space-y-4'>
+    <form className='space-y-4' onSubmit={handleSubmit(handleSignin)}>
       <div className='space-y-2'>
     <Label htmlFor='email'>Seu e-mail</Label>
-    <Input id='email' type='email'></Input>
+    <Input id='email' type='email' {... register('email')}></Input>
       </div>
-      <Button type='submit' className='w-full'>Acessar painel</Button>
+      <Button type='submit' className='w-full' disabled={isSubmitting}>Acessar painel</Button>
     </form>
         </div>
 
