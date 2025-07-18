@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { ArrowRight, Search } from 'lucide-react'
+import { ArrowRight, Search, X } from 'lucide-react'
 import { OrderTableRow } from './order-table-row'
 import { OrderTableFilters } from './order-table-filters'
 import { Pagination } from '@/components/pagination'
@@ -44,7 +44,7 @@ export const Orders = () => {
                         <TableCell className='font-medium'>Leonardo Eiji Kina</TableCell>
                         <TableCell className='font-medium'>R$ 149,00</TableCell>
                         <TableCell><Button variant={'outline'} size={'xs'}><ArrowRight className='mr-2 h-3 w-3'/> Aprovar</Button></TableCell>
-                        <TableCell></TableCell>
+                        <TableCell><Button variant={'outline'} size={'xs'}><X className='mr-2 h-3 w-3'/> Cancelar</Button></TableCell>
                     </TableRow>
    {Array.from({ length: 10 }).map((_, i) => (
      <OrderTableRow key={i}/>

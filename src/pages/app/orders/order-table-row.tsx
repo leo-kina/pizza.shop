@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { TableCell, TableRow } from '@/components/ui/table'
-import { ArrowRight, Search } from 'lucide-react'
+import { ArrowRight, Search, X } from 'lucide-react'
 import React from 'react'
 
 export const OrderTableRow = () => {
@@ -27,8 +27,12 @@ export const OrderTableRow = () => {
           <Button variant="outline" size="xs">
             <ArrowRight className="mr-2 h-3 w-3" /> Aprovar
           </Button>
+          
         </TableCell>
-        <TableCell></TableCell>
+        <TableCell>        
+            <Button variant="outline" size="xs">
+            <X className="mr-2 h-3 w-3" /> Cancelar
+          </Button></TableCell>
       </TableRow>
   )
 }
