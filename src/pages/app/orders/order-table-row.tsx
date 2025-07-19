@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { TableCell, TableRow } from '@/components/ui/table'
 import { ArrowRight, Search, X } from 'lucide-react'
 import React from 'react'
+import { OrdersDetials } from './orders-detials'
 
 export const OrderTableRow = () => {
   return (
@@ -16,6 +17,7 @@ export const OrderTableRow = () => {
             <span className="sr-only">Detalhes do pedido</span>
           </Button>
           </DialogTrigger>
+  <OrdersDetials/>
           </Dialog>
         </TableCell>
         <TableCell className="font-mono text-xs font-medium">w0938129w9wws0</TableCell>
