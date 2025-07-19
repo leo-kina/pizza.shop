@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
-import { Dashboard } from './pages/app/dashboard'
+import { Dashboard } from '../src/pages/app/dashboard/dashboard'
 import { Signin } from './pages/auth/sign-in'
 import { AppLayout } from './pages/_layouts/app'
 import { AuthLayout } from './pages/_layouts/auth'
