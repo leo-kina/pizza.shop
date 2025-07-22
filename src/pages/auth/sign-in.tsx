@@ -6,6 +6,8 @@ import {z} from 'zod'
 import { signInForm } from '@/schemas/signSchema'
 import { toast } from 'sonner'
 import {Link} from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
+import { signIn } from '@/api/sign-in'
 export const Signin = () => {
   type SignFormDate = z.infer<typeof signInForm>
   const {
@@ -14,9 +16,11 @@ export const Signin = () => {
     formState: {isSubmitting}
   } 
   = useForm<SignFormDate>()
-
+const {mutateAsync: authenticate} = useMutation({
+  mutationFn: signIn,
+})
  async function handleSignin (data:SignFormDate){
-      await new Promise(resolve => setTimeout(resolve,2000))
+      await authenticate({email:data.email})
 try{
     console.log(data)
     toast.success("Enviamos um link de autentificacao para seu e-mail.",{
