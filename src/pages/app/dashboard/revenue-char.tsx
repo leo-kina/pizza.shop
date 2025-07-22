@@ -16,15 +16,19 @@ export const RevenueChar = () => {
     <div>
         <Card className='col-span-4'>
             <CardHeader className='flex-row items-center justify-between pb-8'>
+              <div className='space-y-1'>
                 <CardTitle className='text-base font-medium'>Receita no periodo</CardTitle>
                 <CardDescription>Receita diaria no periodo</CardDescription>
+                </div>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width={"100%"} height={240}>
                 <LineChart style={{fontSize:12}} data={data}>
                   <XAxis dataKey={'date'} tickLine={false} axisLine={false} dy={16}/>
                   <YAxis width={80} stroke='#888' axisLine={false} tickLine={false} tickFormatter={(value:number) => value.toLocaleString('pt-BR',{style : 'currency',currency: 'BRL'})}/>
+
                   <Line type={'linear'} strokeWidth={2} dataKey={'revenue'} stroke={'#7b45df'}/>
+                  <CartesianGrid vertical={false} className='stroke-muted'/>
                 </LineChart>
               </ResponsiveContainer>
             </CardContent>
